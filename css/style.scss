@@ -1,0 +1,1772 @@
+@import "normalize";
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,500,700,900');
+
+$minWidth: 380px;
+$bgSections:#22313F;
+$colorResalte:#19B5FE;
+$plainColor:#ECF0F1;
+$plainColorHome:#123;
+
+$mobileColor: #F2F1EF;
+$mobileButtonBg:#DADFE1;
+$grayOld: #6C7A89;
+
+$whyColor:#F9690E;
+$whatColor:#DB0A5B;
+$trainingColor:#D91E18;
+$nutritionColor:#1E824C;
+$restColor:#446CB3;
+
+$genericBg:#2C3E50;
+
+$quoteColor:#D91E18;
+$titleColor:#1E8BC3;
+$picsBg:#090f15;
+
+$trainingBg:#2574A9;
+$trainingTextColor:#fff;
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+//App Code
+
+#wrap{
+  display:block;
+  width:100%;
+  min-height:120vh;
+  background:#BF55EC;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+#mobile{
+  display:block;
+  width:100%;
+  max-width:270px;
+  margin:0 auto;
+  background:$mobileColor;
+  padding:0;
+  cursor:pointer;
+
+  @media(min-width:$minWidth){
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -o-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%);
+
+    border-radius:35px;
+    border:3px solid $grayOld;
+    padding:0em 1em 0.6em;
+    box-shadow:0px 0px 100px #000;
+  }
+}
+
+#contain-header{
+  display:none;
+  width:100%;
+  margin:0 auto 430px;
+
+  @media(min-width:$minWidth){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -o-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items:center;
+    -moz-align-items:center;
+    align-items:center;
+  }
+
+  #first-output{
+    display:block;
+    width:7px;
+    height:7px;
+    background:$grayOld;
+    border-radius:100%;
+    margin:15px auto;
+  }
+
+  #sub-outputs{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -o-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items:center;
+    -moz-align-items:center;
+    align-items:center;
+    -webkit-justify-content:center;
+    -moz-justify-content:center;
+    justify-content:center;
+    width:100%;
+    margin:0 auto 10px;
+
+    #circle-sub{
+      display:block;
+      width:9px;
+      height:9px;
+      background:$grayOld;
+      border-radius:100%;
+      margin:0 10px;
+    }
+
+    #sub-bar{
+      display:block;
+      width:50px;
+      height:6px;
+      background:$grayOld;
+      border-radius:5px;
+    }
+  }
+}
+
+#button-mobile{
+  display:none;
+  width:50px;
+  height:50px;
+  margin:0.6em auto 0;
+  background:$mobileButtonBg;
+  border:2px solid $grayOld;
+  border-radius:100%;
+
+  @media(min-width:$minWidth){
+    display:block;
+  }
+}
+
+#button-mobile:focus {
+  outline:none;
+}
+
+#container-screen{
+  display:block;
+  width:100%;
+  max-width:270px;
+  height:420px;
+  background:$genericBg;
+
+  position:absolute;
+  overflow-x:hidden;
+  overflow-y:scroll;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  top:56px;
+}
+
+#container-screen::-webkit-scrollbar
+{
+  width: 0px;  /* for vertical scrollbars */
+  height: 0px; /* for horizontal scrollbars */
+}
+
+// ::-webkit-scrollbar-track
+// {
+//   background: red;
+// }
+
+// ::-webkit-scrollbar-thumb
+// {
+//   background: red;
+// }
+
+// ::-webkit-scrollbar-corner{
+//   background: red;
+// }
+
+#splash-window{
+  display:block;
+  width:100%;
+  min-height:100%;
+
+  #contain-splash, #register-popup{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -o-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items:center;
+    -moz-align-items:center;
+    align-items:center;
+    width:100%;
+
+    position:absolute;
+    top:40%;
+    left:50%;
+    -webkit-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -o-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%);
+
+    div{
+      display:block;
+      width:100%;
+      margin:0 auto;
+
+      svg, svg path{
+        display:block;
+        margin:0 auto;
+        fill:#fff;
+        width:150px;
+        height:75px;
+
+        .st2{
+          stroke:#fff;
+        }
+
+        .logo-ball{
+          animation: color-ball 3s ease-in-out infinite;
+        }
+
+        @keyframes color-ball {
+            0% { fill:$whyColor;}
+            20% { fill:$whatColor; }
+            40% { fill:$trainingColor; }
+            60% { fill:$nutritionColor; }
+            80% { fill:$restColor; }
+            100% { fill:$whyColor;}
+        }
+      }
+    }
+
+    p{
+      display:block;
+      width:100%;
+      margin:0 auto;
+      text-align:center;
+      color:#fff;
+      font-size:0.8em;
+      font-weight:400;
+      padding-bottom:4em;
+    }
+
+    #loader {
+        border: 3px solid #fff; /* Light grey */
+        border-top: 3px solid $genericBg; /* Blue */
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @-moz-keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+  }
+
+  #register-popup{
+    width:75%;
+    top:45%;
+    border:2px solid #fff;
+    padding:1em 0;
+
+    @-webkit-keyframes popup{
+      0%{
+        -webkit-transform:translate(-50%,100%);
+        -moz-transform:translate(-50%,100%);
+        -o-transform:translate(-50%,100%);
+        transform:translate(-50%,100%);
+      }
+      90%{
+        -webkit-transform:translate(-50%,-65%);
+        -moz-transform:translate(-50%,-65%);
+        -o-transform:translate(-50%,-65%);
+        transform:translate(-50%,-65%);
+      }
+      100%{
+        -webkit-transform:translate(-50%,-50%);
+        -moz-transform:translate(-50%,-50%);
+        -o-transform:translate(-50%,-50%);
+        transform:translate(-50%,-50%);
+      }
+    }
+
+    @-moz-keyframes popup{
+      0%{
+        -webkit-transform:translate(-50%,100%);
+        -moz-transform:translate(-50%,100%);
+        -o-transform:translate(-50%,100%);
+        transform:translate(-50%,100%);
+      }
+      90%{
+        -webkit-transform:translate(-50%,-65%);
+        -moz-transform:translate(-50%,-65%);
+        -o-transform:translate(-50%,-65%);
+        transform:translate(-50%,-65%);
+      }
+      100%{
+        -webkit-transform:translate(-50%,-50%);
+        -moz-transform:translate(-50%,-50%);
+        -o-transform:translate(-50%,-50%);
+        transform:translate(-50%,-50%);
+      }
+    }
+
+    @keyframes popup{
+      0%{
+        -webkit-transform:translate(-50%,100%);
+        -moz-transform:translate(-50%,100%);
+        -o-transform:translate(-50%,100%);
+        transform:translate(-50%,100%);
+      }
+      90%{
+        -webkit-transform:translate(-50%,-65%);
+        -moz-transform:translate(-50%,-65%);
+        -o-transform:translate(-50%,-65%);
+        transform:translate(-50%,-65%);
+      }
+      100%{
+        -webkit-transform:translate(-50%,-50%);
+        -moz-transform:translate(-50%,-50%);
+        -o-transform:translate(-50%,-50%);
+        transform:translate(-50%,-50%);
+      }
+    }
+
+    @-webkit-keyframes flip-popup{
+      0%{
+        -webkit-transform:translate(-45%,-50%);
+        -moz-transform:translate(-45%,-50%);
+        -o-transform:translate(-45%,-50%);
+        transform:translate(-45%,-50%);
+      }
+      20%{
+        -webkit-transform:translate(-55%,-50%);
+        -moz-transform:translate(-55%,-50%);
+        -o-transform:translate(-55%,-50%);
+        transform:translate(-55%,-50%);
+      }
+      40%{
+        -webkit-transform:translate(-45%,-50%);
+        -moz-transform:translate(-45%,-50%);
+        -o-transform:translate(-45%,-50%);
+        transform:translate(-45%,-50%);
+      }
+      60%{
+        -webkit-transform:translate(-55%,-50%);
+        -moz-transform:translate(-55%,-50%);
+        -o-transform:translate(-55%,-50%);
+        transform:translate(-55%,-50%);
+      }
+      80%{
+        -webkit-transform:translate(-45%,-50%);
+        -moz-transform:translate(-45%,-50%);
+        -o-transform:translate(-45%,-50%);
+        transform:translate(-45%,-50%);
+      }
+      100%{
+        -webkit-transform:translate(-55%,-50%);
+        -moz-transform:translate(-55%,-50%);
+        -o-transform:translate(-55%,-50%);
+        transform:translate(-55%,-50%);
+      }
+    }
+
+    @-moz-keyframes flip-popup{
+      0%{
+        -webkit-transform:translate(-45%,-50%);
+        -moz-transform:translate(-45%,-50%);
+        -o-transform:translate(-45%,-50%);
+        transform:translate(-45%,-50%);
+      }
+      20%{
+        -webkit-transform:translate(-55%,-50%);
+        -moz-transform:translate(-55%,-50%);
+        -o-transform:translate(-55%,-50%);
+        transform:translate(-55%,-50%);
+      }
+      40%{
+        -webkit-transform:translate(-45%,-50%);
+        -moz-transform:translate(-45%,-50%);
+        -o-transform:translate(-45%,-50%);
+        transform:translate(-45%,-50%);
+      }
+      60%{
+        -webkit-transform:translate(-55%,-50%);
+        -moz-transform:translate(-55%,-50%);
+        -o-transform:translate(-55%,-50%);
+        transform:translate(-55%,-50%);
+      }
+      80%{
+        -webkit-transform:translate(-45%,-50%);
+        -moz-transform:translate(-45%,-50%);
+        -o-transform:translate(-45%,-50%);
+        transform:translate(-45%,-50%);
+      }
+      100%{
+        -webkit-transform:translate(-55%,-50%);
+        -moz-transform:translate(-55%,-50%);
+        -o-transform:translate(-55%,-50%);
+        transform:translate(-55%,-50%);
+      }
+    }
+
+    @keyframes flip-popup{
+      0%{
+        -webkit-transform:translate(-45%,-50%);
+        -moz-transform:translate(-45%,-50%);
+        -o-transform:translate(-45%,-50%);
+        transform:translate(-45%,-50%);
+      }
+      20%{
+        -webkit-transform:translate(-55%,-50%);
+        -moz-transform:translate(-55%,-50%);
+        -o-transform:translate(-55%,-50%);
+        transform:translate(-55%,-50%);
+      }
+      40%{
+        -webkit-transform:translate(-45%,-50%);
+        -moz-transform:translate(-45%,-50%);
+        -o-transform:translate(-45%,-50%);
+        transform:translate(-45%,-50%);
+      }
+      60%{
+        -webkit-transform:translate(-55%,-50%);
+        -moz-transform:translate(-55%,-50%);
+        -o-transform:translate(-55%,-50%);
+        transform:translate(-55%,-50%);
+      }
+      80%{
+        -webkit-transform:translate(-45%,-50%);
+        -moz-transform:translate(-45%,-50%);
+        -o-transform:translate(-45%,-50%);
+        transform:translate(-45%,-50%);
+      }
+      100%{
+        -webkit-transform:translate(-55%,-50%);
+        -moz-transform:translate(-55%,-50%);
+        -o-transform:translate(-55%,-50%);
+        transform:translate(-55%,-50%);
+      }
+    }
+
+    h2{
+      display:block;
+      color:#fff;
+      padding:1em 0;
+    }
+
+    #enter-button{
+      display:block;
+      width:100%;
+      max-width:100px;
+      margin:0.5em auto 0;
+
+      p{
+        display:block;
+        text-align:center;
+        background:#2ECC71;
+        font-size:1em;
+        padding:0.5em 0;
+      }
+
+    }
+
+    input{
+      display:block;
+      border:none;
+      padding:0.5em 0;
+      text-align:center;
+      margin:0.5em auto;
+    }
+
+    :focus {
+      outline:none;
+    }
+  }
+}
+
+#app-header{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -o-flex;
+  display: -moz-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items:center;
+  -moz-align-items:center;
+  align-items:center;
+  -webkit-justify-content:space-around;
+  -moz-justify-content:space-around;
+  justify-content:space-around;
+  width:100%;
+  max-width: 270px;
+  position: absolute;
+  z-index: 15;
+  background:$genericBg;
+
+  @-webkit-keyframes header-down{
+    0%{
+      top: -100%;
+    }
+    100%{
+      top: 0;
+    }
+  }
+  @-moz-keyframes header-down{
+    0%{
+      top: -100%;
+    }
+    100%{
+      top: 0;
+    }
+  }
+  @keyframes header-down{
+    0%{
+      top: -100%;
+    }
+    100%{
+      top: 0;
+    }
+  }
+
+  #menu-icon, #profile-icon, div{
+    display:block;
+
+    svg, svg path{
+      display:block;
+      margin:0 auto;
+      fill:#fff;
+
+      .st2{
+        stroke:#fff;
+      }
+    }
+  }
+
+  #menu-icon, #profile-icon{
+    &:hover{
+      svg, svg path{
+        fill:$colorResalte;
+      }
+    }
+
+  }
+
+  #profile-icon{
+    svg, svg path{
+      width:30px;
+      height:30px;
+    }
+  }
+}
+
+#menu-window{
+  display:block;
+  width:80%;
+  max-width:215px;
+  height:420px;
+  background:$bgSections;
+
+  position:absolute;
+  top:0;
+  z-index:15;
+
+  #close-menu{
+    display: block;
+    width:100%;
+
+    div{
+      display:block;
+      width:100%;
+      padding:0.5em 0;
+
+      svg, svg path{
+        display:block;
+        margin:0 0 0 185px;
+        fill:#fff;
+      }
+
+      &:hover{
+        svg, svg path{
+          fill:$colorResalte;
+        }
+      }
+    }
+
+
+  }
+
+  #sections-container{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -o-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items:center;
+    -moz-align-items:center;
+    align-items:center;
+    width:100%;
+    height:384px;
+
+    .sections-menu{
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -o-flex;
+      display: -moz-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      -moz-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items:center;
+      -moz-align-items:center;
+      align-items:center;
+      -webkit-justify-content:space-between;
+      -moz-justify-content:space-between;
+      justify-content:space-between;
+      width:100%;
+      height:20%;
+
+      div{
+        display:block;
+        width:40px;
+        height:40px;
+        border-radius:50%;
+        margin:0 0 0 40px;
+      }
+
+      p{
+        display:block;
+        width:120px;
+        text-align:left;
+        color:#fff;
+      }
+
+      &:hover{
+        p{
+          color:$colorResalte;
+        }
+      }
+
+    }
+
+    #why-menu{
+      div{
+        background:$whyColor;
+      }
+    }
+
+    #what-menu{
+      div{
+        background:$whatColor;
+      }
+    }
+
+    #nutrition-menu{
+      div{
+        background:$nutritionColor;
+      }
+    }
+
+    #training-menu{
+      div{
+        background:$trainingColor;
+      }
+    }
+
+    #rest-menu{
+      div{
+        background:$restColor;
+      }
+    }
+  }
+}
+
+#profile-window{
+  display:block;
+  width:100%;
+  max-width:270px;
+  height:420px;
+  background:$bgSections;
+
+  position:absolute;
+  top:0;
+  z-index:15;
+
+  #close-profile{
+    display: block;
+    width:100%;
+
+    div{
+      display:block;
+      width:100%;
+      padding:0.5em 0;
+
+      svg, svg path{
+        display:block;
+        margin:0 0 0 235px;
+        fill:#fff;
+      }
+
+      &:hover{
+        svg, svg path{
+          fill:$colorResalte;
+        }
+      }
+    }
+
+
+  }
+
+  #profile-container{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -o-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items:center;
+    -moz-align-items:center;
+    align-items:center;
+    width:100%;
+    height:384px;
+
+    #profile-pic{
+      display:block;
+      width:80px;
+      height:80px;
+      border-radius:50%;
+      background:url('../img/profile.jpg') no-repeat;
+    background-position:center;
+    background-size:100%;
+
+    }
+
+    h2{
+      display:block;
+      color:#fff;
+      font-size:1.4em;
+      padding:0.5em 0 1em;
+
+      span{
+        color:$colorResalte;
+      }
+    }
+
+    .profile-info{
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -o-flex;
+      display: -moz-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      -moz-flex-direction: row;
+      flex-direction: row;
+      -webkit-align-items:center;
+      -moz-align-items:center;
+      align-items:center;
+      -webkit-justify-content:center;
+      -moz-justify-content:center;
+      justify-content:center;
+      width:100%;
+      padding:0.6em 0;
+
+      h4, p{
+        display:block;
+        width:40%;
+        text-align:left;
+        padding:0 0.5em;
+        color:#fff;
+      }
+
+      p{
+        color:$colorResalte;
+        text-align:center;
+      }
+    }
+  }
+}
+
+#home{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -o-flex;
+  display: -moz-flex;
+  display: flex;
+  -webkit-flex-direction:column;
+  -moz-flex-direction:column;
+  flex-direction:column;
+  -webkit-align-items:center;
+  -moz-align-items:center;
+  align-items:center;
+  width:100%;
+  position:absolute;
+  z-index:12;
+
+  @-webkit-keyframes home-up{
+    0%{
+      top:100%;
+    }
+    100%{
+      top:0;
+    }
+  }
+  @-moz-keyframes home-up{
+    0%{
+      top:100%;
+    }
+    100%{
+      top:0;
+    }
+  }
+  @keyframes home-up{
+    0%{
+      top:100%;
+    }
+    100%{
+      top:0;
+    }
+  }
+
+  #home-pic{
+    display:block;
+    width:100%;
+      background:url('../img/MoFarah.png') no-repeat $picsBg;
+    background-position:center bottom;
+    background-size:130%;
+    height:270px;
+  }
+
+  #content-phrase{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -o-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-direction:column;
+    -moz-flex-direction:column;
+    flex-direction:column;
+    -webkit-align-items:center;
+    -moz-align-items:center;
+    align-items:center;
+    width:100%;
+    height:100%;
+    min-height:150px;
+    background:$plainColorHome;
+
+    #phrase{
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -o-flex;
+      display: -moz-flex;
+      display: flex;
+      -webkit-flex-direction:row;
+      -moz-flex-direction:row;
+      flex-direction:row;
+      -webkit-align-items:flex-start;
+      -moz-align-items:flex-start;
+      align-items:flex-start;
+      -webkit-justify-content:center;
+      -moz-justify-content:center;
+      justify-content:center;
+      width:100%;
+      padding:3em 0 0.5em;
+
+      div{
+        display:block;
+        margin:0 10px;
+
+        svg, svg path{
+          display:block;
+          margin:0 auto;
+          fill:$quoteColor;
+        }
+      }
+
+      p{
+        display:block;
+        text-align:center;
+        font-size:1.2em;
+        color:$quoteColor;
+      }
+
+      #end-quote{
+        margin-top:12px;
+      }
+    }
+
+    #author{
+      display:block;
+      width:88%;
+      margin:0 auto;
+
+      p{
+        display:block;
+        width:100%;
+        color:#fff;
+        text-align:right;
+      }
+    }
+
+    &:before{
+      content:"";
+      display:block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 50px 270px 50px 0;
+      border-color: transparent $plainColorHome transparent transparent;
+      position:absolute;
+      top:220px;
+      z-index:5;
+
+    }
+  }
+}
+
+#why, #what, #rest{
+  display:block;
+  width:100%;
+  min-height:100%;
+  background:url('../img/Why.png') no-repeat $picsBg;
+    background-position:top center;
+    background-size:150%;
+    position:absolute;
+    top:0;
+
+  .title-section{
+    display:block;
+    padding:8em 0 4em;
+    width:100%;
+
+    p{
+      display:block;
+      width:100%;
+      font-size:2em;
+      color:#fff;
+      text-align:center;
+    }
+  }
+
+  .content-text{
+    display:block;
+    width:80%;
+    margin:0 auto;
+    padding:1em 0.5em;
+    border-top:5px solid $whyColor;
+    background:$plainColor;
+
+    .contain-logo{
+      display:block;
+      width:100%;
+      padding-bottom:0.5em;
+
+      div{
+        display:block;
+        width:40px;
+        height:40px;
+        margin:0 auto;
+        padding:0.4em;
+        border-radius:50%;
+        background:$whyColor;
+
+        svg, svg path{
+          display:block;
+          margin:0 auto;
+          width:40px;
+          height:40px;
+          fill:#fff;
+        }
+      }
+    }
+
+    h3{
+      display:block;
+      width:100%;
+      color:$titleColor;
+      text-align:center;
+      padding-bottom:1em;
+    }
+
+    p{
+      display:block;
+      width:100%;
+      text-align:justify;
+      font-size:0.8em;
+      padding:0.5em 0;
+      line-height:14px;
+    }
+
+    &:hover{
+      .contain-logo div{
+        animation: logo-animate 1s ease-in infinite;
+
+        @keyframes logo-animate{
+          0%{
+            transform: scale(1);
+          }
+          50%{
+            transform: scale(1.2);
+          }
+          100%{
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+#what{
+  background: url('../img/What.png') no-repeat $picsBg;
+    background-position:top center;
+    background-size:150%;
+
+  .content-text{
+    border-top:5px solid $whatColor;
+
+    .contain-logo{
+      div{
+        background:$whatColor;
+      }
+    }
+  }
+}
+
+#rest{
+  background:url('../img/Rest.png') no-repeat $picsBg;
+    background-position:top center;
+    background-size:150%;
+    z-index:5;
+
+  .content-text{
+    border-top:5px solid $restColor;
+
+    .contain-logo{
+      div{
+        background:$restColor;
+      }
+    }
+  }
+}
+
+#nutrition, #training{
+  display:block;
+  width:100%;
+  min-height:100%;
+  background: url('../img/Nutrition.png') no-repeat $picsBg;
+    background-position:top center;
+    background-size:150%;
+    position:absolute;
+    top:0;
+
+  .title-section{
+    display:block;
+    padding:8em 0 4em;
+    width:100%;
+
+    p{
+      display:block;
+      width:100%;
+      font-size:2em;
+      color:#fff;
+      text-align:center;
+    }
+  }
+
+  .categories-content{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -o-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-direction:row;
+    -moz-flex-direction:row;
+    flex-direction:row;
+    -webkit-align-items:flex-start;
+    -moz-align-items:flex-start;
+    align-items:flex-start;
+    -webkit-justify-content:space-between;
+    -moz-justify-content:space-between;
+    justify-content:space-between;
+    -webkit-flex-wrap:wrap;
+    -moz-flex-wrap:wrap;
+    flex-wrap:wrap;
+    width:80%;
+    margin:0 auto;
+
+    .categories{
+      display:block;
+      width:45%;
+      margin:10px auto;
+      background:#dedede;
+
+      p{
+        display:block;
+        width:100%;
+        padding:2.4em 0;
+        text-align:center;
+        color:#fff;
+      }
+
+      &:hover{
+        animation:hover-nutrition 1s ease-in-out infinite;
+
+        @keyframes hover-nutrition{
+          0%{
+            background:#DB0A5B;
+            // border-top:4px solid #8E44AD;
+            // border-right:0px solid transparent;
+            // border-bottom:0px solid transparent;
+            // border-left:0px solid transparent;
+          }
+          40%{
+            background:#F62459;
+            // border-top:0px solid transparent;
+            // border-right:4px solid #8E44AD;
+            // border-bottom:0px solid transparent;
+            // border-left:0px solid transparent;
+          }
+          80%{
+            background:#CF000F;
+            // border-top:0px solid transparent;
+            // border-right:0px solid transparent;
+            // border-bottom:4px solid #8E44AD;
+            // border-left:0px solid transparent;
+          }
+          100%{
+            background:#EF4836;
+            // border-top:0px solid transparent;
+            // border-right:0px solid transparent;
+            // border-bottom:0px solid transparent;
+            // border-left:4px solid #8E44AD;
+          }
+        }
+      }
+    }
+
+    #diet,#fish{
+      background:#68C3A3;
+    }
+    #vitamin,#meat{
+      background:#3FC380;
+    }
+    #fruit,#fats{
+      background:#90C695;
+    }
+    #veggies,#carbs{
+      background:#1BBC9B;
+    }
+  }
+}
+
+#training{
+  background: url('../img/Training.png') no-repeat $picsBg;
+    background-position:top center;
+    background-size:150%;
+
+  .categories-content{
+
+    #core,#six-pack{
+      background:#BF55EC;
+    }
+    #speed,#arms{
+      background:#913D88;
+    }
+    #legs,#endurance{
+      background:#663399;
+    }
+    #strength,#mobility{
+      background:#9B59B6;
+    }
+
+    .categories{
+      &:hover{
+        animation:hover-training 1s ease-in-out infinite;
+
+        @keyframes hover-training{
+          0%{
+            background:#19B5FE;
+            // border-top:4px solid #8E44AD;
+            // border-right:0px solid transparent;
+            // border-bottom:0px solid transparent;
+            // border-left:0px solid transparent;
+          }
+          40%{
+            background:#22A7F0;
+            // border-top:0px solid transparent;
+            // border-right:4px solid #8E44AD;
+            // border-bottom:0px solid transparent;
+            // border-left:0px solid transparent;
+          }
+          80%{
+            background:#1E8BC3;
+            // border-top:0px solid transparent;
+            // border-right:0px solid transparent;
+            // border-bottom:4px solid #8E44AD;
+            // border-left:0px solid transparent;
+          }
+          100%{
+            background:#3498DB;
+            // border-top:0px solid transparent;
+            // border-right:0px solid transparent;
+            // border-bottom:0px solid transparent;
+            // border-left:4px solid #8E44AD;
+          }
+        }
+      }
+    }
+  }
+}
+
+#diet-page, #vitamin-page, #fruit-page, #veggies-page, #meat-page, #fish-page, #carbs-page, #fats-page{
+  display:block;
+  width:100%;
+  min-height:100%;
+  position:absolute;
+  top:0;
+
+  .title-sub-section{
+    display:block;
+    padding:3em 0.5em 3em;
+    width:80%;
+    margin:4em auto 0;
+    background:#dedede;
+
+    p{
+      display:block;
+      width:100%;
+      font-size:2em;
+      color:#fff;
+      text-align:center;
+    }
+  }
+
+  .content-text{
+    display:block;
+    width:80%;
+    margin:0 auto;
+    padding:1em 0.5em;
+    background:$plainColor;
+
+    p{
+      display:block;
+      width:100%;
+      text-align:justify;
+      font-size:0.8em;
+      padding:0.5em 0;
+      line-height:14px;
+    }
+  }
+}
+
+#diet-page{
+  .title-sub-section{    background: url('../img/Diet.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+}
+
+#vitamin-page{
+  .title-sub-section{    background: url('../img/Vitamin.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+}
+
+#fruit-page{
+  .title-sub-section{    background: url('../img/Fruits.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+}
+
+#veggies-page{
+  .title-sub-section{    background: url('../img/Veggies.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+}
+
+#meat-page{
+  .title-sub-section{    background: url('../img/Meat.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+}
+
+#fish-page{
+  .title-sub-section{    background: url('../img/Fish.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+}
+
+#carbs-page{
+  .title-sub-section{    background: url('../img/Carbs.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+}
+
+#fats-page{
+  .title-sub-section{    background: url('../img/Fats.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+}
+
+#core-page, #speed-page, #legs-page, #strength-page, #arms-page, #six-pack-page, #mobility-page, #endurance-page{
+  display:block;
+  width:100%;
+  min-height:100%;
+  position:absolute;
+  top:0;
+
+  .title-sub-section{
+    display:block;
+    padding:3em 0.5em 3em;
+    width:80%;
+    margin:4em auto 0;
+    background:#dedede;
+
+    p{
+      display:block;
+      width:100%;
+      font-size:2em;
+      color:#fff;
+      text-align:center;
+    }
+  }
+
+  .right-train, .left-train{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -o-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-flex-direction:row;
+    -moz-flex-direction:row;
+    flex-direction:row;
+    -webkit-align-items:center;
+    -moz-align-items:center;
+    align-items:center;
+    width:100%;
+    max-width:232px;
+    margin:0 auto;
+    background:$trainingBg;
+
+    .pic-train{
+      display:block;
+      width:100%;
+      background:$colorResalte;
+      padding-bottom:120px;
+    }
+    .times-train{
+      display:block;
+      width:80px;
+      color:$trainingTextColor;
+      text-align:center;
+    }
+
+    &:hover{
+      background:#E87E04;
+
+      .pic-train{
+        animation:grow-pic 2s ease-in-out infinite;
+
+        @keyframes grow-pic{
+          0%{
+            background-size:110%;
+          }
+          50%{
+            background-size:130%;
+          }
+          100%{
+            background-size:110%;
+          }
+        }
+      }
+    }
+  }
+
+  .left-train{
+    -webkit-flex-direction:row-reverse;
+    -moz-flex-direction:row-reverse;
+    flex-direction:row-reverse;
+  }
+}
+
+#core-page{
+  .title-sub-section{    background: url('../img/Core.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+
+  .right-train, .left-train{
+    #oneTrain{                                    background: url('../img/Core6.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #twoTrain{                                    background: url('../img/Core8.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #threeTrain{                                    background: url('../img/Core1.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fourTrain{                                    background: url('../img/Core2.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fiveTrain{                                    background: url('../img/Core4.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #sixTrain{                                    background: url('../img/Core6.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+  }
+}
+
+#speed-page{
+  .title-sub-section{    background: url('../img/Speed.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+
+  .right-train, .left-train{
+    #oneTrain{                                    background: url('../img/Speed5.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #twoTrain{                                    background: url('../img/Speed1.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #threeTrain{                                    background: url('../img/Speed3.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fourTrain{                                    background: url('../img/Speed2.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fiveTrain{                                    background: url('../img/Speed4.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #sixTrain{                                    background: url('../img/Speed7.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+  }
+}
+
+#legs-page{
+  .title-sub-section{    background: url('../img/Legs.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+
+  .right-train, .left-train{
+    #oneTrain{                                    background: url('../img/Legs1.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #twoTrain{                                    background: url('../img/Legs6.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #threeTrain{                                    background: url('../img/Legs3.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fourTrain{                                    background: url('../img/Legs4.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fiveTrain{                                    background: url('../img/Legs5.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #sixTrain{                                    background: url('../img/Legs8.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+  }
+}
+
+#strength-page{
+  .title-sub-section{    background: url('../img/Strength.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+
+  .right-train, .left-train{
+    #oneTrain{                                    background: url('../img/Strength4.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #twoTrain{                                    background: url('../img/Strength1.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #threeTrain{                                    background: url('../img/Strength3.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fourTrain{                                    background: url('../img/Strength5.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fiveTrain{                                    background: url('../img/Strength7.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #sixTrain{                                    background: url('../img/Strength8.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+  }
+}
+
+#arms-page{
+  .title-sub-section{    background: url('../img/Arms.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+
+  .right-train, .left-train{
+    #oneTrain{                                    background: url('../img/Strength4.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #twoTrain{                                    background: url('../img/Strength1.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #threeTrain{                                    background: url('../img/Strength3.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fourTrain{                                    background: url('../img/Legs5.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fiveTrain{                                    background: url('../img/Core4.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #sixTrain{                                    background: url('../img/Strength8.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+  }
+}
+
+#six-pack-page{
+  .title-sub-section{    background: url('../img/SixPack.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+
+  .right-train, .left-train{
+    #oneTrain{                                    background: url('../img/SixPack4.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #twoTrain{                                    background: url('../img/SixPack3.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #threeTrain{                                    background: url('../img/SixPack2.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fourTrain{                                    background: url('../img/SixPack1.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fiveTrain{                                    background: url('../img/Core7.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #sixTrain{                                    background: url('../img/Strength5.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+  }
+}
+
+#mobility-page{
+  .title-sub-section{    background:url('../img/Mobility.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+
+  .right-train, .left-train{
+    #oneTrain{                                    background: url('../img/Legs3.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #twoTrain{                                    background: url('../img/SixPack3.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #threeTrain{                                    background: url('../img/Legs7.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fourTrain{                                    background: url('../img/Strength6.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fiveTrain{                                    background: url('../img/Strength7.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #sixTrain{                                    background: url('../img/Core2.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+  }
+}
+
+#endurance-page{
+  .title-sub-section{    background: url('../img/Endurance.jpg') no-repeat;
+    background-size:100%;
+    background-position:center;
+  }
+
+  .right-train, .left-train{
+    #oneTrain{                                    background: url('../img/Speed1.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #twoTrain{                                    background: url('../img/Speed5.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #threeTrain{                                    background: url('../img/Speed7.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fourTrain{                                    background: url('../img/Strength1.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #fiveTrain{                                    background: url('../img/Strength7.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+
+    #sixTrain{                                    background: url('../img/Strength8.jpg') no-repeat;
+    background-size:110%;
+    background-position:center;
+    }
+  }
+}
